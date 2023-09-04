@@ -1,0 +1,124 @@
+.nav {
+	background-color: $colorHeaderFon;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+.nav__mob-btn {
+	height: $heighNav;
+	text-align: right;
+	padding: 0 5px;
+}
+.btn-nav {
+	height: $heighNav;
+	width: $heighNav;
+	position: relative;
+	@extend %focus_inside;
+	i {
+		display: block;
+		position: absolute;
+		left: 12px;
+		height: 4px;
+		width: calc(100% - 24px);
+		background-color: rgba(255, 255, 255, 0.9);
+		border-radius: 2px;
+		transition: all 0.2s ease;
+		&:nth-child(1) {
+			top: 17px;
+		}
+		&:nth-child(2) {
+			top: 28px;
+		}
+		&:nth-child(3) {
+			bottom: 17px;
+		}
+	}
+	&.active {
+		i {
+			&:nth-child(1),
+			&:nth-child(2) {
+				top: 30px;
+			}
+			&:nth-child(1) {
+				transform: rotate(-45deg);
+			}
+			&:nth-child(2) {
+				transform: rotate(45deg);
+			}
+			&:nth-child(3) {
+				left: 50%;
+				opacity: 0;
+				width: 0;
+			}
+		}
+	}
+}
+.nav__spisok {
+	a {
+		display: block;
+		color: rgba(255, 255, 255, 0.9);
+		text-transform: uppercase;
+		text-decoration: none;
+		font-size: 16px;
+		letter-spacing: 2px;
+		line-height: 1.2;
+		&:hover {
+			color: $colorOrange;
+		}
+		&::selection {
+			background: #fff;
+			color: #000;
+		}
+	}
+}
+
+@media (max-width: 991.98px) {
+	.nav__spisok {
+		display: none;
+	}
+	.nav__spisok {
+		a {
+			padding: 12px 0;
+			text-align: center;
+			border-top: 1px solid rgba(255, 255, 255, 0.08);
+		}
+		&:not(.open) {
+			display: none;
+		}
+	}
+}
+@media (min-width: 992px) {
+	.nav__mob-btn {
+		display: none;
+	}
+	.nav__spisok {
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		height: $heighNav;
+		a {
+			padding: 6px 1px;
+			margin: 0 25px;
+			position: relative;
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 2px;
+				background-color: $colorOrange;
+				transition: width 0.2s ease;
+			}
+			&:hover {
+				&::before {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

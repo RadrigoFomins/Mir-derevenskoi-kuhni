@@ -1,0 +1,60 @@
+.header {
+	height: calc(100vh - $heighNav);
+	margin-top: $heighNav;
+	background-color: rgba(0, 0, 0, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+}
+$heigh-logo: min(max(100px, 20vw), 160px);
+.header__logo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	user-select: none;
+	background: transparent url(../images/logo.png?v=3) 50% 0% no-repeat;
+	padding: calc($heigh-logo + 20px) 15px 60px;
+	background-size: auto $heigh-logo;
+	text-align: center;
+	text-transform: uppercase;
+	h1 {
+		text-shadow: 0 -2px 2px $colorOrange,
+			2px 0 2px $colorOrange,
+			0 2px 2px $colorOrange,
+			-2px 0 2px $colorOrange,
+			0 0 5px rgba(0, 0, 0, 0.2);
+		@include adaptiv-font(50, 36);
+		color: #fff;
+	}
+	p {
+		text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+		color: rgba(255, 255, 255, 0.8);
+		@include adaptiv-font(26, 18);
+		line-height: 1.3;
+		margin-top: 10px;
+	}
+}
+.header__bottom {
+	display: block;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: 50%;
+	margin-left: -40px;
+	bottom: 20px;
+	background: transparent var(--e-icon-button-bottom) 50% 50% no-repeat;
+	background-size: contain;
+	animation: header__bottom 1.4s ease-in-out infinite;
+	opacity: 0.5;
+}
+
+@keyframes header__bottom {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+}
